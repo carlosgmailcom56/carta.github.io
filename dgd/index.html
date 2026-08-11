@@ -1,0 +1,1766 @@
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para el amor de mi vida ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #6d2948 0%,
+                    #351525 38%,
+                    #160912 72%,
+                    #080308 100%
+                );
+
+            color: #4b2936;
+        }
+
+        /* =====================================================
+           FONDO
+        ===================================================== */
+
+        .glow {
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: .18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow.one {
+            background: #ff477e;
+            top: -250px;
+            left: -200px;
+        }
+
+        .glow.two {
+            background: #c32967;
+            right: -250px;
+            bottom: -250px;
+        }
+
+        /* =====================================================
+           CORAZONES
+        ===================================================== */
+
+        #hearts {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 30;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -60px;
+            color: #ff739a;
+            opacity: 0;
+
+            text-shadow:
+                0 0 10px rgba(255, 75, 130, .8);
+
+            animation:
+                floatingHeart linear forwards;
+        }
+
+        @keyframes floatingHeart {
+
+            0% {
+                transform:
+                    translateY(0)
+                    translateX(0)
+                    rotate(0deg)
+                    scale(.6);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: .85;
+            }
+
+            50% {
+                transform:
+                    translateY(-50vh)
+                    translateX(40px)
+                    rotate(15deg)
+                    scale(1);
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    translateX(-40px)
+                    rotate(-20deg)
+                    scale(.8);
+
+                opacity: 0;
+            }
+        }
+
+        /* =====================================================
+           MÚSICA
+        ===================================================== */
+
+        .music-button {
+
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.25);
+
+            background:
+                rgba(125, 35, 72, .8);
+
+            backdrop-filter: blur(10px);
+
+            color: white;
+
+            font-size: 21px;
+
+            cursor: pointer;
+
+            z-index: 100;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,.4);
+
+            transition:
+                .3s ease;
+        }
+
+        .music-button:hover {
+            transform: scale(1.1);
+        }
+
+        .music-button.playing {
+            animation: musicPulse 1.5s infinite;
+        }
+
+        @keyframes musicPulse {
+
+            0% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(255,80,130,.6);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 15px
+                    rgba(255,80,130,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(255,80,130,0);
+            }
+        }
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        #intro {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+
+            position: relative;
+            z-index: 5;
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+        }
+
+        #intro.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .intro-content {
+            text-align: center;
+            max-width: 700px;
+
+            animation:
+                introAppear 1.5s ease;
+        }
+
+        @keyframes introAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-small {
+
+            color: #e8a0b8;
+
+            font-size: 13px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .intro-title {
+
+            color: white;
+
+            font-size:
+                clamp(45px, 9vw, 82px);
+
+            font-weight: normal;
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+        }
+
+        .intro-title span {
+
+            color: #ff7198;
+
+            font-style: italic;
+        }
+
+        .intro-description {
+
+            color: #d6a9b8;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            max-width: 540px;
+
+            margin:
+                0 auto 45px;
+        }
+
+        /* =====================================================
+           CORAZÓN CENTRAL
+        ===================================================== */
+
+        .heart-button {
+
+            width: 120px;
+            height: 120px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.25);
+
+            background:
+                radial-gradient(
+                    circle,
+                    #f05a83,
+                    #a82050
+                );
+
+            color: white;
+
+            font-size: 58px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            animation:
+                heartPulse 2s infinite;
+
+            transition:
+                transform .3s ease;
+        }
+
+        .heart-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes heartPulse {
+
+            0% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(255,70,125,.6);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 30px
+                    rgba(255,70,125,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(255,70,125,0);
+            }
+        }
+
+        .click-text {
+
+            margin-top: 20px;
+
+            color: #c68a9f;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+        /* =====================================================
+           CARTA
+        ===================================================== */
+
+        #letter-section {
+
+            display: none;
+
+            position: relative;
+
+            z-index: 5;
+
+            padding:
+                80px 20px 120px;
+
+            animation:
+                letterAppear 1.5s ease;
+        }
+
+        @keyframes letterAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter {
+
+            width:
+                min(900px, 100%);
+
+            margin: auto;
+
+            padding:
+                clamp(40px, 7vw, 85px);
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fffefd,
+                    #fff4f7
+                );
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 40px 100px
+                rgba(0,0,0,.55);
+
+            overflow: hidden;
+        }
+
+        .letter::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 14px;
+
+            border:
+                1px solid
+                rgba(150,55,87,.15);
+
+            pointer-events: none;
+        }
+
+        .letter::after {
+
+            content: "♥";
+
+            position: absolute;
+
+            right: 20px;
+            bottom: 0;
+
+            font-size: 120px;
+
+            color:
+                rgba(180,50,90,.035);
+
+            transform:
+                rotate(-15deg);
+        }
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+
+        .letter-header {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+        .ornament {
+
+            color: #c2486e;
+
+            letter-spacing: 10px;
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .header-small {
+
+            font-family: Arial, sans-serif;
+
+            color: #ae7185;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .letter-title {
+
+            color: #722c48;
+
+            font-weight: normal;
+
+            font-size:
+                clamp(38px, 7vw, 60px);
+
+            line-height: 1.1;
+        }
+
+        .letter-title em {
+
+            color: #bd3e67;
+
+        }
+
+        /* =====================================================
+           TEXTO
+        ===================================================== */
+
+        .letter-body {
+
+            color: #50313d;
+
+            font-size: 18px;
+
+            line-height: 2.05;
+        }
+
+        .letter-body p {
+
+            margin-bottom: 32px;
+        }
+
+        .first-letter {
+
+            float: left;
+
+            font-size: 58px;
+
+            line-height: .8;
+
+            padding-right: 9px;
+
+            padding-top: 7px;
+
+            color: #bb3f66;
+        }
+
+        strong {
+            color: #9e3154;
+        }
+
+        /* =====================================================
+           FRASES ROMÁNTICAS
+        ===================================================== */
+
+        .romantic-quote {
+
+            margin:
+                55px 0;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            color: #923552;
+
+            font-size: 25px;
+
+            line-height: 1.65;
+
+            font-style: italic;
+
+            position: relative;
+        }
+
+        .romantic-quote::before {
+
+            content: "♥";
+
+            display: block;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+
+            color: #ca5276;
+        }
+
+        .romantic-quote::after {
+
+            content: "♥";
+
+            display: block;
+
+            font-size: 18px;
+
+            margin-top: 15px;
+
+            color: #ca5276;
+        }
+
+        /* =====================================================
+           CAJA DE FRASES
+        ===================================================== */
+
+        .love-box {
+
+            margin:
+                55px 0;
+
+            padding: 35px;
+
+            background:
+                rgba(190,60,100,.045);
+
+            border:
+                1px solid
+                rgba(190,60,100,.1);
+
+            border-radius: 8px;
+        }
+
+        .love-box h3 {
+
+            text-align: center;
+
+            color: #913351;
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+        }
+
+        .love-line {
+
+            display: flex;
+
+            gap: 14px;
+
+            margin-bottom: 20px;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+        .love-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .love-symbol {
+
+            color: #c23d66;
+
+            flex-shrink: 0;
+        }
+
+        /* =====================================================
+           FINAL
+        ===================================================== */
+
+        .ending {
+
+            text-align: center;
+
+            margin-top: 65px;
+
+            padding-top: 50px;
+
+            border-top:
+                1px solid
+                rgba(150,60,90,.15);
+        }
+
+        .ending p {
+            margin-bottom: 25px;
+        }
+
+        .big-love {
+
+            color: #a52f56;
+
+            font-size:
+                clamp(42px, 8vw, 70px);
+
+            font-weight: normal;
+
+            margin:
+                40px 0 20px;
+        }
+
+        .ending-message {
+
+            color: #956577;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            font-style: italic;
+        }
+
+        .signature {
+
+            margin-top: 55px;
+
+            color: #704153;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+        }
+
+        .signature strong {
+
+            font-size: 22px;
+
+            color: #9b3155;
+        }
+
+        /* =====================================================
+           BOTÓN
+        ===================================================== */
+
+        .restart {
+
+            display: block;
+
+            margin:
+                55px auto 0;
+
+            padding:
+                13px 30px;
+
+            border-radius: 30px;
+
+            border:
+                1px solid
+                rgba(170,55,90,.25);
+
+            background: transparent;
+
+            color: #9d3658;
+
+            cursor: pointer;
+
+            font-family: Arial, sans-serif;
+
+            transition: .3s ease;
+        }
+
+        .restart:hover {
+
+            background: #9d3658;
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+        }
+
+        /* =====================================================
+           MÓVIL
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .letter {
+                padding: 45px 25px;
+            }
+
+            .letter-body {
+                font-size: 16px;
+                line-height: 1.9;
+            }
+
+            .romantic-quote {
+                font-size: 21px;
+            }
+
+            .love-box {
+                padding: 25px 20px;
+            }
+
+            .music-button {
+                width: 48px;
+                height: 48px;
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MÚSICA
+    ===================================================== -->
+
+    <audio
+        id="romanticMusic"
+        loop
+    >
+
+        <source
+            src="musica/canciondeamor.mpeg"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- =====================================================
+         FONDO
+    ===================================================== -->
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div id="hearts"></div>
+
+
+    <!-- =====================================================
+         BOTÓN MÚSICA
+    ===================================================== -->
+
+    <button
+        id="musicButton"
+        class="music-button"
+    >
+
+        🎵
+
+    </button>
+
+
+    <!-- =====================================================
+         INTRO
+    ===================================================== -->
+
+    <section id="intro">
+
+        <div class="intro-content">
+
+            <div class="intro-small">
+
+                Una carta escrita con amor
+
+            </div>
+
+
+            <h1 class="intro-title">
+
+                Para la persona
+                <span>que amo.</span>
+
+            </h1>
+
+
+            <p class="intro-description">
+
+                Hay sentimientos que no caben en una simple
+                conversación. Hay palabras que merecen
+                ser escritas lentamente y leídas con el
+                corazón.
+
+                Esta carta es para ti Karol.
+
+            </p>
+
+
+            <button
+                id="openButton"
+                class="heart-button"
+            >
+
+                ♥
+
+            </button>
+
+
+            <div class="click-text">
+
+                Toca el corazón
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CARTA
+    ===================================================== -->
+
+    <section id="letter-section">
+
+        <article class="letter">
+
+
+            <header class="letter-header">
+
+                <div class="ornament">
+
+                    ♥ · ♥ · ♥
+
+                </div>
+
+
+                <div class="header-small">
+
+                    Una carta desde lo más profundo
+                    de mi corazón
+
+                </div>
+
+
+                <h2 class="letter-title">
+
+                    Para ti,
+                    <em>mi persona especial.</em>
+
+                </h2>
+
+            </header>
+
+
+            <div class="letter-body">
+
+
+                <p>
+
+                    <span class="first-letter">A</span> veces
+                    me pregunto cómo es posible que una persona
+                    pueda llegar a ocupar un lugar tan bonito
+                    dentro del corazón de alguien.
+
+                    Y cada vez que pienso en ello, apareces tú.
+
+                </p>
+
+
+                <p>
+
+                    No sé exactamente en qué momento empezaste
+                    a convertirte en alguien tan importante para
+                    mí.
+
+                    Quizás fue en una conversación.
+
+                    Quizás fue en una sonrisa.
+
+                    Quizás fue en alguno de esos pequeños
+                    momentos que parecían insignificantes
+                    cuando sucedieron, pero que con el tiempo
+                    se quedaron guardados en mi memoria.
+
+                </p>
+
+
+                <p>
+
+                    Lo que sí sé es que, poco a poco,
+                    comenzaste a formar parte de mis pensamientos.
+
+                    Empecé a preguntarme cómo estabas,
+                    cómo había sido tu día, si estabas feliz,
+                    si necesitabas una palabra bonita,
+                    un abrazo o simplemente alguien que
+                    estuviera ahí.
+
+                </p>
+
+
+                <div class="romantic-quote">
+
+                    "Entre millones de personas,
+                    mi corazón tuvo la suerte de encontrarte
+                    a ti."
+
+                </div>
+
+
+                <p>
+
+                    Y quiero que sepas algo:
+
+                    <strong>
+                        me haces feliz.
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    No porque hayas llegado a solucionar mi vida.
+
+                    No porque espere que seas perfecta.
+
+                    No porque necesite que seas alguien
+                    diferente a quien eres.
+
+                    Me haces feliz simplemente por ser tú.
+
+                </p>
+
+
+                <p>
+
+                    Me gusta tu manera de existir.
+
+                    Me gustan tus pequeñas ocurrencias,
+                    tus palabras, tus gestos y esas cosas
+                    que quizás tú consideras normales,
+                    pero que para mí pueden convertirse
+                    en recuerdos preciosos.
+
+                </p>
+
+
+                <p>
+
+                    Me gusta saber que estás ahí.
+
+                    Me gusta poder hablar contigo.
+
+                    Me gusta cuando conseguimos reírnos
+                    juntos por cualquier tontería.
+
+                    Me gusta cuando una conversación que
+                    parecía durar unos minutos termina
+                    convirtiéndose en horas.
+
+                </p>
+
+
+                <div class="romantic-quote">
+
+                    "No necesito un mundo perfecto.
+                    Me basta con un pequeño lugar en él
+                    donde pueda encontrarte a ti."
+
+                </div>
+
+
+                <p>
+
+                    Si pudiera regalarte algo que no se
+                    pudiera comprar, te regalaría la forma
+                    en la que yo te veo.
+
+                    Para que pudieras mirar por un instante
+                    a través de mis ojos y entender por qué
+                    eres tan especial.
+
+                </p>
+
+
+                <p>
+
+                    Verías a una persona que merece ser querida.
+
+                    Una persona que merece que la escuchen.
+
+                    Una persona que merece sentirse importante.
+
+                    Una persona que merece que alguien la
+                    mire y piense:
+
+                    <strong>
+                        "Qué suerte tengo de tenerte en mi vida."
+                    </strong>
+
+                </p>
+
+
+                <div class="love-box">
+
+                    <h3>
+
+                        Algunas cosas que quiero que recuerdes
+
+                    </h3>
+
+
+                    <div class="love-line">
+
+                        <span class="love-symbol">♥</span>
+
+                        <span>
+
+                            Nunca pienses que eres poco,
+                            porque para alguien puedes ser
+                            absolutamente todo.
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="love-line">
+
+                        <span class="love-symbol">♥</span>
+
+                        <span>
+
+                            Nunca dudes de lo especial que eres,
+                            incluso en esos días en los que
+                            tú misma no puedas verlo.
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="love-line">
+
+                        <span class="love-symbol">♥</span>
+
+                        <span>
+
+                            Nunca tengas miedo de mostrar quién eres,
+                            porque precisamente esa persona que eres
+                            es de quien me enamoré.
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="love-line">
+
+                        <span class="love-symbol">♥</span>
+
+                        <span>
+
+                            Y nunca olvides que existe alguien
+                            que piensa en ti con una sonrisa.
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Quiero estar en esos pequeños momentos
+                    que quizá nadie más nota.
+
+                    Quiero celebrar tus logros.
+
+                    Quiero escucharte cuando necesites hablar.
+
+                    Quiero reír contigo cuando estés feliz.
+
+                    Y si algún día la vida se vuelve pesada,
+                    quiero poder darte un abrazo y recordarte
+                    que no tienes que cargarlo todo sola.
+
+                </p>
+
+
+                <p>
+
+                    No quiero prometerte una vida sin problemas,
+                    porque eso sería imposible.
+
+                    Lo que sí puedo prometerte es que, mientras
+                    esté a tu lado, intentaré que nunca te falte
+                    cariño.
+
+                </p>
+
+
+                <p>
+
+                    Quiero quererte en los días fáciles y en
+                    los complicados.
+
+                    En los días en los que tengas ganas de
+                    conquistar el mundo y en aquellos en los
+                    que solamente quieras quedarte en silencio.
+
+                </p>
+
+
+                <div class="romantic-quote">
+
+                    "Amarte no significa querer solamente
+                    tus días bonitos; significa querer también
+                    acompañarte cuando el mundo se vuelva gris."
+
+                </div>
+
+
+                <p>
+
+                    Quizá no pueda darte todas las cosas
+                    que existen en este mundo.
+
+                    Pero puedo darte algo que nace
+                    completamente de mí:
+
+                    mi tiempo,
+                    mi atención,
+                    mi cariño,
+                    mi sinceridad
+                    y un corazón que aprendió a quererte.
+
+                </p>
+
+
+                <p>
+
+                    Y si alguna vez llegas a preguntarme
+                    qué es lo que siento por ti, probablemente
+                    no sabré encontrar una respuesta perfecta.
+
+                    Porque "te quiero" parece demasiado pequeño
+                    para todo lo que quiero decir.
+
+                </p>
+
+
+                <p>
+
+                    Te quiero cuando sonríes.
+
+                    Te quiero cuando estás feliz.
+
+                    Te quiero cuando haces alguna tontería.
+
+                    Te quiero cuando hablas emocionada de algo.
+
+                    Te quiero cuando estás tranquila.
+
+                    Te quiero incluso cuando no dices nada.
+
+                </p>
+
+
+                <p>
+
+                    Te quiero por lo que eres.
+
+                    Por lo que has sido.
+
+                    Y por todo aquello que todavía estás
+                    por convertirte.
+
+                </p>
+
+
+                <div class="romantic-quote">
+
+                    "Si pudiera elegir nuevamente entre
+                    todas las personas de este mundo,
+                    volvería a buscarte a ti."
+
+                </div>
+
+
+                <p>
+
+                    Hay algo que deseo más que cualquier
+                    regalo material:
+
+                    que seas feliz.
+
+                </p>
+
+
+                <p>
+
+                    Incluso si algún día dudas de ti,
+                    quiero que recuerdes que para mí
+                    siempre habrá algo hermoso en ti.
+
+                    Algo que no depende de tu apariencia,
+                    de tus logros ni de lo que puedas hacer
+                    por los demás.
+
+                    Algo que simplemente existe porque
+                    eres tú.
+
+                </p>
+
+
+                <p>
+
+                    Y si alguna vez la distancia, el tiempo
+                    o las circunstancias hacen que las cosas
+                    sean difíciles, quiero que recuerdes
+                    todos esos momentos bonitos.
+
+                    Porque hay personas que dejan huellas
+                    que ningún tiempo consigue borrar.
+
+                    Y tú dejaste una en mí.
+
+                </p>
+
+
+                <p>
+
+                    No sé qué pasará mañana.
+
+                    No sé qué historias escribiremos,
+                    qué caminos recorreremos ni cuántas
+                    páginas tendrá nuestra historia.
+
+                    Pero sí sé algo:
+
+                    <strong>
+                        quiero que estés en ella.
+                    </strong>
+
+                </p>
+
+
+                <div class="romantic-quote">
+
+                    "No quiero que seas solamente
+                    un recuerdo bonito.
+
+                    Quiero que seas una de esas historias
+                    que mi corazón recuerde con una sonrisa
+                    incluso después de muchos años."
+
+                </div>
+
+
+                <p>
+
+                    Gracias.
+
+                </p>
+
+
+                <p>
+
+                    Gracias por existir.
+
+                    Gracias por ser tú.
+
+                    Gracias por cada sonrisa.
+
+                    Gracias por cada palabra.
+
+                    Gracias por cada momento.
+
+                    Gracias por cada recuerdo que has dejado
+                    en mi corazón.
+
+                </p>
+
+
+                <p>
+
+                    Y sobre todo...
+
+                    gracias por permitirme quererte.
+
+                </p>
+
+
+                <div class="ending">
+
+
+                    <p>
+
+                        Si alguna vez dudas de lo que significas
+                        para mí, vuelve a esta carta.
+
+                    </p>
+
+
+                    <p>
+
+                        Léela lentamente.
+
+                    </p>
+
+
+                    <p>
+
+                        Y recuerda que cada palabra fue escrita
+                        pensando en ti.
+
+                    </p>
+
+
+                    <div class="big-love">
+
+                        Te amo. ❤️
+
+                    </div>
+
+
+                    <div class="ending-message">
+
+                        Más de lo que algunas palabras pueden explicar,
+                        más de lo que una pantalla puede mostrar
+                        y más de lo que una simple carta podría
+                        alcanzar a expresar.
+
+                    </div>
+
+
+                    <div class="signature">
+
+                        Con todo mi amor,
+
+                        <br><br>
+
+                        <strong>
+                             ♥
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                id="restartButton"
+                class="restart"
+            >
+
+                ♥ Volver a leer
+
+            </button>
+
+
+        </article>
+
+    </section>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const intro =
+            document.getElementById("intro");
+
+        const letterSection =
+            document.getElementById("letter-section");
+
+        const openButton =
+            document.getElementById("openButton");
+
+        const restartButton =
+            document.getElementById("restartButton");
+
+        const hearts =
+            document.getElementById("hearts");
+
+        const music =
+            document.getElementById("romanticMusic");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+
+        let heartInterval = null;
+
+        let musicPlaying = false;
+
+
+        /* =====================================================
+           CORAZÓN FLOTANTE
+        ===================================================== */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+
+            const symbols = [
+                "♥",
+                "♡",
+                "❤",
+                "💗",
+                "💖",
+                "💕"
+            ];
+
+
+            heart.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (12 + Math.random() * 25) +
+                "px";
+
+
+            const duration =
+                5 + Math.random() * 7;
+
+
+            heart.style.animationDuration =
+                duration + "s";
+
+
+            hearts.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, duration * 1000);
+
+        }
+
+
+        /* =====================================================
+           EXPLOSIÓN DE CORAZONES
+        ===================================================== */
+
+        function heartExplosion() {
+
+            for (
+                let i = 0;
+                i < 40;
+                i++
+            ) {
+
+                setTimeout(
+                    createHeart,
+                    i * 55
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LLUVIA DE CORAZONES
+        ===================================================== */
+
+        function startHeartRain() {
+
+            stopHeartRain();
+
+            heartInterval =
+                setInterval(
+                    createHeart,
+                    300
+                );
+
+        }
+
+
+        function stopHeartRain() {
+
+            if (
+                heartInterval !== null
+            ) {
+
+                clearInterval(
+                    heartInterval
+                );
+
+                heartInterval = null;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MÚSICA
+        ===================================================== */
+
+        function playMusic() {
+
+            music.volume = 0.35;
+
+            music.play()
+                .then(() => {
+
+                    musicPlaying = true;
+
+                    musicButton.textContent =
+                        "🎵";
+
+                    musicButton.classList.add(
+                        "playing"
+                    );
+
+                })
+                .catch(() => {
+
+                    console.log(
+                        "El navegador bloqueó la reproducción."
+                    );
+
+                });
+
+        }
+
+
+        function pauseMusic() {
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicButton.textContent =
+                "🔇";
+
+            musicButton.classList.remove(
+                "playing"
+            );
+
+        }
+
+
+        /* =====================================================
+           ABRIR CARTA
+        ===================================================== */
+
+        openButton.addEventListener(
+            "click",
+            () => {
+
+                playMusic();
+
+                heartExplosion();
+
+                intro.classList.add(
+                    "hidden"
+                );
+
+
+                setTimeout(() => {
+
+                    intro.style.display =
+                        "none";
+
+                    letterSection.style.display =
+                        "block";
+
+                    startHeartRain();
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }, 900);
+
+            }
+        );
+
+
+        /* =====================================================
+           BOTÓN MÚSICA
+        ===================================================== */
+
+        musicButton.addEventListener(
+            "click",
+            () => {
+
+                if (musicPlaying) {
+
+                    pauseMusic();
+
+                } else {
+
+                    playMusic();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           REINICIAR
+        ===================================================== */
+
+        restartButton.addEventListener(
+            "click",
+            () => {
+
+                stopHeartRain();
+
+                letterSection.style.display =
+                    "none";
+
+                intro.style.display =
+                    "flex";
+
+                setTimeout(() => {
+
+                    intro.classList.remove(
+                        "hidden"
+                    );
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }, 50);
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+```
+
